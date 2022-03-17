@@ -1,0 +1,44 @@
+# Application
+www/app/debug.log
+www/app/wp-cache-config.php
+www/app/advanced-cache.php
+www/app/aiowps_backups
+www/app/blogs.dir
+www/app/cache
+www/app/ewww
+www/app/languages
+www/app/mailimages
+www/app/plugins
+www/app/themes
+www/app/upgrade
+www/app/uploads
+www/app/updraft
+www/app/wpo-cache
+www/app/webp-express
+www/app/wflogs
+www/app/wp-rocket-config
+www/wp-content
+www/.htaccess
+composer.lock
+.env
+.DS_Store
+.buildpath
+.project
+.settings
+
+# WordPress
+www/wp/
+
+# Logs
+*.log
+
+# Dotenv
+.env.*
+!.env.example
+!www/.htaccess.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
