@@ -1,0 +1,148 @@
+{
+  "name": "themaxmedia/master",
+  "description": "https://www.themax.media",
+  "type": "project",
+  "keywords": [
+    "bedrock",
+    "composer",
+    "roots",
+    "wordpress",
+    "wp",
+    "wp-config"
+  ],
+  "homepage": "https://roots.io/bedrock/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    },
+    {
+      "name": "Mehmet Durmaz",
+      "email": "mehmet.durmaz@temax.us",
+      "homepage": "https://github.com/durmazmehmet"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "https://discourse.roots.io/category/bedrock"
+  },
+  "repositories": {
+    "0": {
+      "type": "composer",
+      "url": "https://gitlab.com/api/v4/group/13168387/-/packages/composer/packages.json"
+    },
+    "1": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    },
+    "2": {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    }
+  },
+  "require": {
+    "roots/bedrock-autoloader": "*",
+    "roots/bedrock-disallow-indexing": "*",
+    "oscarotero/env": "*",
+    "composer/installers": "*",
+    "php": ">=7.1",
+    "vlucas/phpdotenv": "*",
+    "roots/wordpress": "*",
+    "johnpbloch/wordpress-core": "*",
+    "roots/wp-config": "*",
+    "roots/wp-password-bcrypt": "*",
+    "wpackagist-theme/twentytwentyone": "*",
+    "the-max-media/bomby": "1.0.0",
+    "wpackagist-plugin/all-in-one-seo-pack": "*",
+    "wpackagist-plugin/cookie-notice": "*",
+    "wpackagist-plugin/crayon-syntax-highlighter": "*",
+    "wpackagist-plugin/custom-post-type-ui": "*",
+    "the-max-media/elite-addons-vc": "*",
+    "wpackagist-plugin/google-analytics-for-wordpress": "*",
+    "wpackagist-plugin/jetpack": "*",
+    "wpackagist-plugin/lightbox-popup": "*",
+    "the-max-media/mega_main_menu": "*",
+    "wpackagist-plugin/ninja-forms": "*",
+    "the-max-media/polylang-pro": "*",
+    "wpackagist-plugin/redux-framework": "*",
+    "the-max-media/revslider": "*",
+    "wpackagist-plugin/video-popup": "*",
+    "wpackagist-plugin/wordpress-importer": "*",
+    "wpackagist-plugin/wp-downgrade": "*",
+    "wpackagist-plugin/wp-optimize": "*",
+    "the-max-media/js_composer": "*",
+    "wpackagist-plugin/redirection": "*",
+    "wpackagist-plugin/regenerate-thumbnails": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "roave/security-advisories": "dev-master"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "the-max-media/*": true,
+      "roots/*": true,
+      "squizlabs/php_codesniffer": true,
+      "roave/security-advisories": true,
+      "oscarotero/env": true,
+      "composer/installers": true,
+      "php": true,
+      "vlucas/phpdotenv": true,
+      "johnpbloch/wordpress-core": true,
+      "wpackagist-theme/twentytwentyone": true,
+      "wpackagist-plugin/all-in-one-seo-pack": true,
+      "wpackagist-plugin/cookie-notice": true,
+      "wpackagist-plugin/crayon-syntax-highlighter": true,
+      "wpackagist-plugin/custom-post-type-ui": true,
+      "wpackagist-plugin/google-analytics-for-wordpress": true,
+      "wpackagist-plugin/jetpack": true,
+      "wpackagist-plugin/lightbox-popup": true,
+      "wpackagist-plugin/ninja-forms": true,
+      "wpackagist-plugin/redux-framework": true,
+      "wpackagist-plugin/video-popup": true,
+      "wpackagist-plugin/wordpress-importer": true,
+      "wpackagist-plugin/wp-downgrade": true,
+      "wpackagist-plugin/wp-optimize": true,
+      "wpackagist-plugin/redirection": true,
+      "wpackagist-plugin/regenerate-thumbnails": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "www/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "www/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "www/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "wordpress-install-dir": "www/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\"",
+      "wp language core update &&  wp language plugin update --all && wp language theme update --all"
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}

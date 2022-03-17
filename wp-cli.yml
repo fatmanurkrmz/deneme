@@ -1,0 +1,3 @@
+path: www/wp
+server:
+  docroot: www
